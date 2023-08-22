@@ -88,4 +88,24 @@ And("User clicks on the Save button", () =>{
 Then("User is able to see the newly created event with title {string} and color {string} on the given date {string}", (eventTitle, color, month) =>{
 
     CalendarPg.verifyNewlyCreatedEvent(eventTitle,color,month)
+}),
+
+When("User clicks on the specified event {string} on the specified date {string}", (eventTitle, month) =>{
+
+    CalendarPg.clickExistingEvent(eventTitle,month)
+}),
+
+Then("User is able to see the event window", () =>{
+
+    CalendarPg.verifyExistingEventFormOpened()
+}),
+
+When("User clicks on the Delete button", () =>{
+
+    CalendarPg.clickEventDeleteButton()
+}),
+
+Then("User is no longer able to see the specified event {string} on the specified date {string}", (eventTitle, month)=>{
+
+    CalendarPg.verifyEventDeleteSuccessful(eventTitle,month)
 })

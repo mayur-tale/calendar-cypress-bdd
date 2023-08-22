@@ -6,7 +6,9 @@ export const TODAY_BUTTON = ('//button[contains(text(),"Today")]')
 
 export const MONTH_TITLE = ('//h2')
 
-export const dayTile = (dayValue) =>`//div[header/p[contains(text(),${dayValue})]]/div`;
+export const dayTile = (dayValue) =>`//div[header/p[contains(text(),${dayValue})]]/div[contains(@class,"cursor-pointer")]`;
+
+export const dayTileLessThan10 = (dayValue) =>`//div[header/p[contains(text(),"${dayValue}")]]/div[contains(@class,"cursor-pointer")]`;
 
 export const eventTitleTextField = ('//input[@name="title"]')
 
@@ -17,3 +19,7 @@ export const eventColorSelectorButton = (color) => `//span[contains(@class,"bg-$
 export const eventSaveButton = ('//button[contains(text(),"Save")]')
 
 export const eventDeleteButton = ('//span[contains(text(),"delete")]')
+
+export const existingEventTile = (dayValue, eventTitle) => `//div[header/p[contains(text(),${dayValue})]]/div/*[contains(text(),"${eventTitle}")]`;
+
+export const existingEventTileDateLessThan10 = (dayValue, eventTitle) => `//div[header/p[contains(text(),"${dayValue}")]]/div/*[contains(text(),"${eventTitle}")]`;
