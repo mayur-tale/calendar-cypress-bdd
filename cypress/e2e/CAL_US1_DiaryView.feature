@@ -10,10 +10,10 @@ Then User is able to navigate to the Current month
 When User clicks the Right navigation arrow
 Then User is able to navigate to the Next month
 When User wants to select a specific month "<month>"
-Then User is able to navigate to the required month "<month>"
+Then User is able to navigate to the required month
 
 Examples:
     | month         |
     | January 2021  |
     | December 2023 |
-    | January 2023  |
+    | August 2023   |

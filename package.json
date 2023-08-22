@@ -15,6 +15,7 @@
   "devDependencies": {
     "cypress": "^12.17.4",
     "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-localstorage-commands": "^2.2.4",
     "cypress-xpath": "^2.0.1",
     "dayjs": "^1.11.9"
   }
