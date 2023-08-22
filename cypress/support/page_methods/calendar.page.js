@@ -44,8 +44,15 @@ class CalendarPage {
 
     clickDayTile(month){
 
-        dayValue = dayjs(month).format('DD')
-        cy.xpath(calendarLocators.dayTile(dayValue)).click();
+        dayValue = (month.toString()).substring(0,2)
+        console.log("dayvalue is " + dayValue)
+        
+       if (dayValue<10){
+        cy.xpath(calendarLocators.dayTileLessThan10(dayValue)).first().click();
+       } else {
+        cy.xpath(calendarLocators.dayTile(dayValue)).last().click();
+       }
+        
     }
 
     clickTodayButton(){
@@ -127,15 +134,64 @@ class CalendarPage {
 
     verifyNewlyCreatedEvent(eventTitle, color, month){
 
-        dayValue = dayjs(month).format('DD')
-        cy.xpath(calendarLocators.dayTile(dayValue)).children().eq(0).should('contain',eventTitle)
+        dayValue = (month.toString()).substring(0,2)
         
-        if(typeof color === undefined){
-            cy.xpath(calendarLocators.dayTile(dayValue)).children().eq(0).invoke('attr','class').should('contain','indigo')
-        } else if (colorList.includes(color)) {
-            cy.xpath(calendarLocators.dayTile(dayValue)).children().eq(0).invoke('attr','class').should('contain',color)
+        if(dayValue<10){
+
+            cy.xpath(calendarLocators.dayTileLessThan10(dayValue)).first().children().eq(0).should('contain',eventTitle)
+            
+            if(typeof color === undefined){
+                cy.xpath(calendarLocators.dayTileLessThan10(dayValue)).first().children().eq(0).invoke('attr','class').should('contain','indigo')
+            } else if (colorList.includes(color)) {
+                cy.xpath(calendarLocators.dayTileLessThan10(dayValue)).first().children().eq(0).invoke('attr','class').should('contain',color)
+            } else {
+                cy.xpath(calendarLocators.dayTileLessThan10(dayValue)).first().children().eq(0).invoke('attr','class').should('contain','indigo')
+            }
+
         } else {
-            cy.xpath(calendarLocators.dayTile(dayValue)).children().eq(0).invoke('attr','class').should('contain','indigo')
+            cy.xpath(calendarLocators.dayTile(dayValue)).last().children().eq(0).should('contain',eventTitle)
+            
+            if(typeof color === undefined){
+                cy.xpath(calendarLocators.dayTile(dayValue)).last().children().eq(0).invoke('attr','class').should('contain','indigo')
+            } else if (colorList.includes(color)) {
+                cy.xpath(calendarLocators.dayTile(dayValue)).last().children().eq(0).invoke('attr','class').should('contain',color)
+            } else {
+                cy.xpath(calendarLocators.dayTile(dayValue)).last().children().eq(0).invoke('attr','class').should('contain','indigo')
+            }
+
+        }
+    }
+
+    clickExistingEvent(eventTitle, month) {
+
+        dayValue = (month.toString()).substring(0,2)
+        if(dayValue<10){
+            cy.xpath(calendarLocators.existingEventTileDateLessThan10(dayValue,eventTitle)).first().click()
+        } else {
+            cy.xpath(calendarLocators.existingEventTile(dayValue,eventTitle)).last().click()
+        }
+    }
+
+    verifyExistingEventFormOpened() {
+
+        cy.xpath(calendarLocators.eventDeleteButton).should("be.visible")
+    }
+
+    clickEventDeleteButton() {
+
+        cy.xpath(calendarLocators.eventDeleteButton).click()
+    }
+
+    verifyEventDeleteSuccessful(eventTitle, month) {
+
+        dayValue = (month.toString()).substring(0,2)
+
+        if (dayValue<10) {
+            cy.xpath(calendarLocators.dayTileLessThan10(dayValue)).first().children().should("have.length", 0)
+            
+        } else {
+            cy.xpath(calendarLocators.dayTile(dayValue)).last().children().should("have.length", 0)
+           
         }
     }
     
