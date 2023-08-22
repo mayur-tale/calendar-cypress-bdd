@@ -194,7 +194,18 @@ class CalendarPage {
            
         }
     }
-    
+
+// Catendar page methods
+
+    verifyHeaderH1Catendar() {
+
+        cy.xpath(calendarLocators.header_h1).should("contain", "Catendar")
+    }
+
+    verifyHeaderH3CatFacts() {
+
+        cy.xpath(calendarLocators.header_h3).should("contain", "Did you know that cats have nine lives!")
+    }
 
 }
 

@@ -108,4 +108,15 @@ When("User clicks on the Delete button", () =>{
 Then("User is no longer able to see the specified event {string} on the specified date {string}", (eventTitle, month)=>{
 
     CalendarPg.verifyEventDeleteSuccessful(eventTitle,month)
+}),
+
+//Catendar steps
+Then("User can see the app title as Catendar", () =>{
+
+    CalendarPg.verifyHeaderH1Catendar()
+}),
+
+Then("User can see the Cat Facts", () =>{
+
+    CalendarPg.verifyHeaderH3CatFacts()
 })

@@ -23,3 +23,9 @@ export const eventDeleteButton = ('//span[contains(text(),"delete")]')
 export const existingEventTile = (dayValue, eventTitle) => `//div[header/p[contains(text(),${dayValue})]]/div/*[contains(text(),"${eventTitle}")]`;
 
 export const existingEventTileDateLessThan10 = (dayValue, eventTitle) => `//div[header/p[contains(text(),"${dayValue}")]]/div/*[contains(text(),"${eventTitle}")]`;
+
+//Catendar locators
+
+export const header_h1 = ('//header/h1')
+
+export const header_h3 = ('//header/h3')
