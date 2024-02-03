@@ -1,5 +1,7 @@
 ﻿# calendar-cypress-bdd
-# This project uses a sample react native Calendar app as application-under-test
+# This project uses a sample react native Calendar app as application-under-test (AUT)
+
+link to the AUT - https://github.com/mayur-tale/react-js-calendar-app
 
 Steps to get the scripts working
 
