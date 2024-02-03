@@ -2,13 +2,18 @@
 # This project uses a sample react native Calendar app as application-under-test
 
 Steps to get the scripts working
+
 1 - Download the git repo
+
 2 - Open Command Prompt / Terminal in Admin mode
+
 3 - install cypress using following command
+
 ```
  npm install cypress --save-dev
 ```
 4 - Install Cucumber preprocessor for Cypress - IMPORTANT run both of these commands one after the other. Some components differ in both cases
+
 4a - command 1
 ```
  npm i -D cypress-cucumber-preprocessor
