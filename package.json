@@ -18,5 +18,8 @@
     "cypress-localstorage-commands": "^2.2.4",
     "cypress-xpath": "^2.0.1",
     "dayjs": "^1.11.9"
+  },
+  "dependencies": {
+    "calendar-cypress-bdd": "file:"
   }
 }

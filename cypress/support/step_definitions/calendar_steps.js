@@ -120,3 +120,25 @@ Then("User can see the Cat Facts", () =>{
 
     CalendarPg.verifyHeaderH3CatFacts()
 })
+
+// Edit Event
+
+And("User updates the eventTitle {string}", (eventTitle) =>{
+
+    CalendarPg.enterEventTitleText(eventTitle)
+}),
+
+And("User updates the eventDescription {string}", (eventDescription) =>{
+
+    CalendarPg.enterEventDescriptionText(eventDescription)
+}),
+
+And("User updates the color {string}", (color) =>{
+
+    CalendarPg.selectEventColor(color)
+}),
+
+Then("User is able to see the edited event with title {string} and color {string} on the given date {string}", (eventTitle, color, month) =>{
+
+    CalendarPg.verifyNewlyCreatedEvent(eventTitle,color,month)
+})

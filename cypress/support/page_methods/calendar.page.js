@@ -39,6 +39,8 @@ class CalendarPage {
 
     clickLeftArrow(){
 
+        cy.wait(100);
+        
         cy.xpath(calendarLocators.PREV_BUTTON).first().click()
     }
 
@@ -83,6 +85,7 @@ class CalendarPage {
     navigateSpecifiedMonth(month) {
 
         this.clickTodayButton();
+        
         requiredMonth = dayjs(month).format('MMMM YYYY')
         duration = dayjs(currentMonth).diff(dayjs(requiredMonth), 'month')
         console.log ("months duration is " + duration)
@@ -206,6 +209,8 @@ class CalendarPage {
 
         cy.xpath(calendarLocators.header_h3).should("contain", "Did you know that cats have nine lives!")
     }
+
+
 
 }
 
