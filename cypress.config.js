@@ -10,6 +10,7 @@ module.exports = defineConfig({
     
     },
     specPattern: "cypress/e2e/**/*.feature",
-    testIsolation: false
+    testIsolation: false,
+    video: false
   },
 });

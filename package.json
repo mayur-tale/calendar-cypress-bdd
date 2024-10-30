@@ -4,18 +4,22 @@
   "description": "��#\u0000 \u0000c\u0000a\u0000l\u0000e\u0000n\u0000d\u0000a\u0000r\u0000-\u0000c\u0000y\u0000p\u0000r\u0000e\u0000s\u0000s\u0000-\u0000b\u0000d\u0000d\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "htmlreport": "node cypress/support/cucumber-html-reporter.js"
   },
   "author": "mayur-tale",
   "license": "ISC",
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
     "StepDefinitions": "cypress/support/step_definitions/",
-    "html": {
-      "enabled": true
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/reports/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
     }
   },
   "devDependencies": {
+    "cucumber-html-reporter": "^7.2.0",
     "cypress": "^12.17.4",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-localstorage-commands": "^2.2.4",

@@ -37,6 +37,14 @@ npm install dayjs --save-dev
 ```
 npm i --save-dev cypress-localstorage-commands
 ```
+8 - Install html reporter
+
+    npm install cucumber-html-reporter --save-dev
+
+To generate html report after running tests
+
+    npm run htmlreport
+
 To launch Cypress in Open mode (Open mode allows to select specs manually and then runs the selected spec)
 ```
 npx cypress open
@@ -44,4 +52,4 @@ npx cypress open
 To launch Cypress in Run mode (Run mode does not allow spec selection after launch, specs can be specified in the launch command, default run is in headless mode, but --headed will run in the default browser Electron. More run options can be used to define other browsers, specific specs etc)
 ```
 npx cypress run --headed
-```
+
