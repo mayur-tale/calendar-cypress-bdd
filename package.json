@@ -10,7 +10,10 @@
   "license": "ISC",
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
-    "StepDefinitions": "cypress/support/step_definitions/"
+    "StepDefinitions": "cypress/support/step_definitions/",
+    "html": {
+      "enabled": true
+    }
   },
   "devDependencies": {
     "cypress": "^12.17.4",
